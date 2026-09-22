@@ -71,6 +71,7 @@ footer{background:#090909;color:#fff;padding:36px 0 22px} .footer-grid{display:g
   .site-header{background:rgba(243,234,219,.96);border-bottom:2px solid var(--ink)}
   .header-shell{height:310px}.header-logo img{width:min(590px,72vw);max-height:260px}
   .site-header.compact .header-shell{height:78px}.site-header.compact .header-logo img{width:164px;height:62px}
+  .header-logo,.header-logo img{will-change:transform;width:100%;display:flex;align-items:center;justify-content:center;backface-visibility:hidden;transform:translateZ(0)}.header-logo img{width:min(590px,72vw);height:auto;transition:transform .32s ease,opacity .32s ease}.site-header.compact .header-logo img{width:min(590px,72vw);height:auto;transform:scale(.278);transform-origin:center}
   .header-actions .left a,.header-actions .right a{font-size:12px;font-weight:900;letter-spacing:.02em}
   .hero{border-bottom:0}.hero-grid{min-height:560px;gap:26px}.hero-copy{padding-right:0}.hero h1{font-size:clamp(56px,8vw,108px);line-height:.84;letter-spacing:-.07em}.hero p{font-size:19px;max-width:560px}
   .hero-products{min-height:560px;border-radius:0;background:radial-gradient(ellipse at 50% 48%,rgba(200,139,43,.15),transparent 58%),var(--paper)}.lineup{inset:10px 0 8px;align-items:center}.lineup img{width:23%;max-height:500px;transform:translateY(12px);filter:drop-shadow(0 18px 18px rgba(64,42,24,.2))}.lineup img:nth-child(3){transform:translateY(2px)}
@@ -86,9 +87,10 @@ footer{background:#090909;color:#fff;padding:36px 0 22px} .footer-grid{display:g
   .hero p,.builder-top p,.build-hint,.summary-line,.pick-card small,.product-copy p,.offer p,.faq-list p,.review-card p,.footer-copy,.mobile-sticky span{font-family:"Iowan Old Style","Baskerville","Times New Roman",serif;letter-spacing:.01em}
   .eyebrow,.product-bottom strong,.offer small,.offer-price span,.summary-total span,.cal-chip,.pick-card small{font-family:"Avenir Next",Avenir,Helvetica,Arial,sans-serif}
   .summary-line strong,.summary-total strong,.offer-price strong{font-family:"Avenir Next",Avenir,Helvetica,Arial,sans-serif}
+  .address-wrap{position:relative}.address-suggestions{display:none;position:absolute;left:0;right:0;top:48px;z-index:3;background:#fffaf1;border:1px solid var(--line);box-shadow:0 10px 24px rgba(32,27,24,.14)}.address-suggestions.show{display:block}.address-suggestions button{display:block;width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:left;padding:11px 12px;font-size:12px;color:var(--ink)}.address-suggestions button:last-child{border-bottom:0}.map-hint{font-size:10px;color:var(--muted);margin-top:4px}.payment-label{font-family:"Avenir Next",Avenir,Helvetica,Arial,sans-serif;font-size:10px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.payment-options{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.payment-option{border:1px solid var(--line);background:#fffaf1;padding:11px 6px;font-size:11px;font-weight:800}.payment-option.active{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);color:var(--accent)}
   .reviews{background:#201b18}.review-card{border-color:#665548}.faq{border-top:2px solid var(--ink)}
   .alt-quickbar{display:flex;gap:10px;align-items:center;justify-content:center;padding:12px 14px;background:var(--accent);color:#fff;position:relative;z-index:2}.alt-quickbar a{border:1px solid rgba(255,255,255,.6);padding:9px 14px;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.alt-quickbar span{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-right:8px}
-  @media(max-width:820px){.header-shell{height:270px}.header-logo img{width:min(350px,80vw);max-height:190px}.hero-grid{min-height:0}.hero-products{min-height:325px;height:325px;border-radius:0}.lineup{inset:6px 0 0}.lineup img{max-height:300px;transform:translateY(10px)}.lineup img:nth-child(3){transform:translateY(2px)}.alt-quickbar{overflow:auto;justify-content:flex-start;white-space:nowrap}.alt-quickbar span{display:none}.section-head h2{font-size:48px}.builder-top p{font-size:14px}}
+  @media(max-width:820px){.header-shell{height:270px}.header-logo img{width:min(350px,80vw);max-height:190px}.site-header.compact .header-logo img{width:min(350px,80vw);transform:scale(.377)}.hero-grid{min-height:0}.hero-products{min-height:325px;height:325px;border-radius:0}.lineup{inset:6px 0 0}.lineup img{max-height:300px;transform:translateY(10px)}.lineup img:nth-child(3){transform:translateY(2px)}.alt-quickbar{overflow:auto;justify-content:flex-start;white-space:nowrap}.alt-quickbar span{display:none}.section-head h2{font-size:48px}.builder-top p{font-size:14px}}
 </style>
 </head>
 <body class="alternate">
@@ -324,8 +326,10 @@ footer{background:#090909;color:#fff;padding:36px 0 22px} .footer-grid{display:g
         <div id="checkoutSummary" class="checkout-summary"></div>
         <input name="name" required placeholder="Full name" autocomplete="name">
         <input name="email" required type="email" placeholder="Email" autocomplete="email">
-        <input name="address" required placeholder="Shipping address" autocomplete="street-address">
+        <div class="address-wrap"><input id="shippingAddress" name="address" required placeholder="Start typing your address" autocomplete="street-address"><div class="address-suggestions" id="addressSuggestions"><button type="button" data-address="1450 Market Street, San Francisco, CA 94102">1450 Market Street, San Francisco, CA 94102</button><button type="button" data-address="100 Main Street, Austin, TX 78701">100 Main Street, Austin, TX 78701</button><button type="button" data-address="350 5th Avenue, New York, NY 10118">350 5th Avenue, New York, NY 10118</button></div><div class="map-hint">Demo map suggestions — select one to autofill.</div></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px"><input name="city" required placeholder="City" autocomplete="address-level2"><input name="postal" required placeholder="ZIP / postal code" autocomplete="postal-code"></div>
+        <div class="payment-label">Choose a payment method <span style="font-weight:500;letter-spacing:0;text-transform:none;color:var(--muted)">(visual demo only)</span></div>
+        <div class="payment-options"><button class="payment-option active" type="button" data-payment="Apple Pay">Apple Pay</button><button class="payment-option" type="button" data-payment="PayPal">PayPal</button><button class="payment-option" type="button" data-payment="Klarna">Klarna</button><button class="payment-option" type="button" data-payment="Afterpay">Afterpay</button></div>
         <button class="btn black" type="submit">Place simulated order</button>
       </form>
       <div id="checkoutDone" class="checkout-done" hidden><p class="eyebrow">DEMO CONFIRMATION</p><h4>Order received.</h4><p>Your test order was recorded locally. No payment was charged.</p><button class="btn black" type="button" id="closeCheckoutDone">Continue shopping</button></div>
@@ -525,6 +529,12 @@ document.getElementById('checkoutForm').addEventListener('submit', e => { e.prev
   const redesignedBottleAssets = {bang:'/assets/bang-redesigned.png',korean:'/assets/korean-redesigned.png',street:'/assets/street-redesigned.png',honey:'/assets/honey-redesigned.png',bbq:'/assets/bbq-redesigned.png'};
   Object.entries(redesignedBottleAssets).forEach(([id,src]) => { const p = byId(id); if (p) p.img = src; document.querySelectorAll('[data-view="'+id+'"],[data-pick="'+id+'"]').forEach(el => { const img = el.closest('.product-card,.pick-card')?.querySelector('img'); if (img) img.src = src; }); });
   updateCart();
+</script>
+<script>
+  const addressInput = document.getElementById('shippingAddress'); const addressSuggestions = document.getElementById('addressSuggestions');
+  addressInput.addEventListener('focus', () => addressSuggestions.classList.add('show')); addressInput.addEventListener('input', () => addressSuggestions.classList.add('show'));
+  document.querySelectorAll('[data-address]').forEach(btn => btn.addEventListener('click', () => { addressInput.value = btn.dataset.address; addressSuggestions.classList.remove('show'); const parts = btn.dataset.address.split(', '); const form = document.getElementById('checkoutForm'); form.elements.city.value = parts[1] || ''; form.elements.postal.value = (parts[2] || '').replace(/^[A-Z]{2} /,''); }));
+  document.querySelectorAll('[data-payment]').forEach(btn => btn.addEventListener('click', () => { document.querySelectorAll('[data-payment]').forEach(x => x.classList.remove('active')); btn.classList.add('active'); }));
 </script>
 </body>
 </html>
