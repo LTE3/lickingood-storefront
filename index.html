@@ -59,6 +59,10 @@ footer{background:#090909;color:#fff;padding:36px 0 22px} .footer-grid{display:g
   .checkout-summary{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin:10px 0;font-size:12px}
   .checkout-done{text-align:center;padding:24px 8px}.checkout-done h4{font-size:28px;margin:8px 0}
   @media(max-width:820px){.builder-grid{grid-template-columns:1fr}.builder-panel{min-width:0}.builder-top{flex-wrap:wrap}.builder-top h3{font-size:28px}.lineup{inset:18px 0 0}}
+  /* The logo is intentionally dramatic at the top, but must stay fully inside its stage. */
+  .header-logo img{width:min(520px,68vw);max-height:232px;object-fit:contain}
+  .site-header.compact .header-logo img{width:146px;height:56px;object-fit:contain}
+  @media(max-width:760px){.header-logo img{width:min(340px,78vw);max-height:178px}.site-header.compact .header-logo img{width:132px;height:52px}}
 </style>
 </head>
 <body>
