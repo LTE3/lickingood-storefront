@@ -75,7 +75,7 @@ footer{background:#090909;color:#fff;padding:36px 0 22px} .footer-grid{display:g
   .header-actions .left a,.header-actions .right a{font-size:12px;font-weight:900;letter-spacing:.02em}
   .hero{border-bottom:0}.hero-grid{min-height:560px;gap:26px}.hero-copy{padding-right:0}.hero h1{font-size:clamp(56px,8vw,108px);line-height:.84;letter-spacing:-.07em}.hero p{font-size:19px;max-width:560px}
   .hero-products{min-height:560px;border-radius:0;background:radial-gradient(ellipse at 50% 48%,rgba(200,139,43,.15),transparent 58%),var(--paper)}.lineup{inset:10px 0 8px;align-items:center}.lineup img{width:23%;max-height:500px;transform:translateY(12px);filter:drop-shadow(0 18px 18px rgba(64,42,24,.2))}.lineup img:nth-child(3){transform:translateY(2px)}
-  .hero-products > .lineup:not(:has(.redesigned-lineup)){display:none}.lineup img:not(.redesigned-lineup){display:none}.lineup .redesigned-lineup{display:block;width:100%;height:100%;max-height:none;object-fit:contain;transform:none;filter:drop-shadow(0 18px 18px rgba(64,42,24,.16))}
+  .hero-products > .lineup:not(:has(.redesigned-lineup)){display:flex}.lineup img:not(.redesigned-lineup){display:block}.lineup .redesigned-lineup{display:none}
   .btn{border-radius:2px;padding:15px 20px;letter-spacing:.12em}.btn.gold{background:var(--accent);color:#fff}.add-single{border:2px solid var(--ink);padding:12px 14px;background:var(--ink);color:#fff;font-size:10px;font-weight:900;letter-spacing:.1em}
   .proof{background:#e5d3ba;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
   .section-head h2{font-size:clamp(42px,6vw,78px);letter-spacing:-.07em}.product-grid{gap:22px}.product-card{border:2px solid var(--ink);background:#f7eee2}.product-art{background:#eadbc7}
@@ -526,7 +526,7 @@ document.getElementById('closeCheckoutDone').addEventListener('click', () => { c
 document.getElementById('checkoutForm').addEventListener('submit', e => { e.preventDefault(); document.getElementById('checkoutForm').hidden = true; document.getElementById('checkoutDone').hidden = false; cart = []; enhancedUpdateCart(); });
 </script>
 <script>
-  const redesignedBottleAssets = {bang:'/assets/bang-classic-logo.png',korean:'/assets/korean-classic-logo.png',street:'/assets/street-classic-logo.png',honey:'/assets/honey-classic-logo.png',bbq:'/assets/bbq-classic-logo.png'};
+  const redesignedBottleAssets = {};
   Object.entries(redesignedBottleAssets).forEach(([id,src]) => { const p = byId(id); if (p) p.img = src; document.querySelectorAll('[data-view="'+id+'"],[data-pick="'+id+'"]').forEach(el => { const img = el.closest('.product-card,.pick-card')?.querySelector('img'); if (img) img.src = src; }); });
   updateCart();
 </script>
