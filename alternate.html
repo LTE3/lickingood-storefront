@@ -47,6 +47,45 @@ footer{background:#090909;color:#fff;padding:36px 0 22px} .footer-grid{display:g
 @media(max-width:1050px){.products{grid-template-columns:repeat(3,1fr)}.builder-grid{grid-template-columns:1fr}.summary{position:static}}
 @media(max-width:820px){.hero-grid{display:block}.hero-copy{padding:42px 0 30px}.hero h1{font-size:54px}.hero p{font-size:16px}.hero-products{height:325px}.lineup{inset:18px -17px 0}.lineup img{width:25%;max-height:300px;margin-left:-5%}.proof-grid{grid-template-columns:1fr 1fr}.section-head{display:block}.section-head p{margin-top:12px}.products{grid-template-columns:1fr 1fr}.offer-grid{grid-template-columns:1fr}.pick-grid{display:flex;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:4px}.pick-card{min-width:155px;scroll-snap-align:start}.review-grid{grid-template-columns:1fr}.faq{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}.signup{display:grid}.modal-grid{grid-template-columns:1fr}}
   @media(max-width:760px){body{padding-bottom:68px}.wrap{width:min(100% - 20px,1200px)}.topbar{font-size:9px}.header-shell{height:250px}.header-logo img{width:86vw;max-width:430px}.header-actions{top:14px}.header-actions .left a{display:none}.menu{display:block!important}.header-actions .right a{display:none}.site-header.compact .header-shell{height:68px}.site-header.compact .header-logo img{width:170px}.hero h1{font-size:44px;line-height:.94;letter-spacing:-.045em;max-width:100%}.products{grid-template-columns:1fr}.product-art{height:275px}.product-art img{height:258px}.mobile-sticky{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:65;background:#111;color:#fff;padding:10px 12px calc(10px + env(safe-area-inset-bottom));border-top:1px solid #2b2a27}.mobile-sticky strong{display:block;font-size:12px}.mobile-sticky span{display:block;margin-top:2px;color:#c9c0b4;font-size:10px}.mobile-sticky a,.mobile-sticky button{border:0;background:var(--gold);color:#111;padding:12px 12px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}.mobile-sticky button{background:#fffaf1}}
+  /* Mobile-first conversion polish */
+  *,*::before,*::after{box-sizing:border-box}
+  html{overflow-x:hidden;scroll-behavior:smooth}
+  body{overflow-x:hidden}
+  button,a,input{font:inherit}
+  button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+  a{color:inherit}
+  button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+  .product-card,.pick-card{min-width:0}
+  .product-art{overflow:hidden}
+  .product-art img{width:100%;height:100%;object-fit:contain;display:block}
+  .quick-view{z-index:4}
+  .drawer{padding-bottom:env(safe-area-inset-bottom)}
+  .drawer-items{min-height:96px}
+  .shipping-progress{display:grid;gap:8px}
+  .shipping-progress .progress-track{height:6px;border-radius:99px;background:#e6d9ca;overflow:hidden}
+  .shipping-progress .progress-fill{height:100%;background:var(--gold);border-radius:inherit;transition:width .25s ease}
+  .cart-empty{display:grid;gap:10px;padding:28px 8px;text-align:center;color:var(--muted)}
+  .cart-empty strong{font-family:var(--display);font-size:18px;color:var(--ink);letter-spacing:.04em}
+  .cart-empty .btn{width:100%}
+  .mobile-sticky{padding-bottom:max(10px,env(safe-area-inset-bottom));z-index:20}
+  @media(max-width:600px){
+    .wrap{width:calc(100% - 32px);max-width:none}
+    .header-inner{min-height:64px;padding:0 16px}
+    .header-logo img{max-width:142px}
+    .hero-products{height:280px}
+    .products{gap:12px}
+    .product-card{border-radius:14px}
+    .product-copy{padding:14px}
+    .product-copy h3{font-size:20px;line-height:1.05}
+    .product-bottom{gap:8px;align-items:stretch;flex-wrap:wrap}
+    .product-bottom .add-single{width:100%;min-height:42px}
+    .quick-view{min-height:38px;padding:9px 10px}
+    .builder{padding-bottom:calc(116px + env(safe-area-inset-bottom))}
+    .mobile-sticky{left:0;right:0;bottom:0;border-radius:14px 14px 0 0;padding:10px 16px max(10px,env(safe-area-inset-bottom));gap:8px}
+    .mobile-sticky>div{min-width:0}.mobile-sticky strong,.mobile-sticky span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .mobile-sticky a,.mobile-sticky button{min-height:40px;padding:10px 12px;white-space:nowrap}
+    .modal{padding:12px}.modal-card{max-height:92dvh;overflow:auto;border-radius:18px}.modal-grid{gap:10px}.modal-visual{min-height:220px}
+  }
 </style>
 <style id="app-enhancements">
   .shipping-progress{font-size:11px;color:var(--muted);margin:0 0 12px;padding:10px 12px;background:#eee7dc;border:1px solid var(--line)}
@@ -92,6 +131,24 @@ footer{background:#090909;color:#fff;padding:36px 0 22px} .footer-grid{display:g
   .reviews{background:#201b18}.review-card{border-color:#665548}.faq{border-top:2px solid var(--ink)}
   .alt-quickbar{display:flex;gap:10px;align-items:center;justify-content:center;padding:12px 14px;background:var(--accent);color:#fff;position:relative;z-index:2}.alt-quickbar a{border:1px solid rgba(255,255,255,.6);padding:9px 14px;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.alt-quickbar span{font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-right:8px}
   @media(max-width:820px){.header-shell{height:270px}.header-logo img{width:min(350px,80vw);max-height:190px}.site-header.compact .header-logo img{width:min(350px,80vw);transform:scale(.377)}.hero-grid{min-height:0}.hero-products{min-height:325px;height:325px;border-radius:0}.lineup{inset:6px 0 0}.lineup img{max-height:300px;transform:translateY(10px)}.lineup img:nth-child(3){transform:translateY(2px)}.alt-quickbar{overflow:auto;justify-content:flex-start;white-space:nowrap}.alt-quickbar span{display:none}.section-head h2{font-size:48px}.builder-top p{font-size:14px}}
+</style>
+<style id="audit-polish">
+  /* Conversion polish: preserve the editorial system while tightening the phone experience. */
+  .combo-cta{margin-top:12px;width:100%;border:1px solid var(--gold);background:transparent;color:inherit;padding:11px 12px;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;text-align:left}
+  .combo-cta:hover,.combo-cta:focus-visible{background:var(--gold);color:var(--ink)}
+  body:has(.drawer.open) .mobile-sticky,body:has(.modal.show) .mobile-sticky{transform:translateY(120%);pointer-events:none}
+  .mobile-sticky{transition:transform .2s ease}
+  .cart-empty span{font-family:"Iowan Old Style","Baskerville","Times New Roman",serif;font-size:14px}
+  .cart-item img{width:58px;max-width:58px}
+  .product-card .quick-view{color:var(--ink);background:transparent;border-color:var(--ink)}
+  @media(max-width:600px){
+    .product-art{height:245px;min-height:245px}
+    .product-art img{height:100%;max-height:none}
+    .pick-card img{height:170px}
+    .product-copy p{min-height:0;margin-bottom:12px}
+    .payment-options{grid-template-columns:repeat(2,1fr)}
+    .mobile-sticky{grid-template-columns:minmax(0,1fr) auto auto}
+  }
 </style>
 </head>
 <body class="alternate">
@@ -551,6 +608,82 @@ document.getElementById('checkoutForm').addEventListener('submit', e => { e.prev
     document.querySelectorAll('[data-pick="'+id+'"]').forEach(card => { card.classList.add('sold-out-card'); card.addEventListener('click', e => { e.preventDefault(); e.stopImmediatePropagation(); requestRestockEmail(id); }, true); });
   });
   document.getElementById('modalAdd').addEventListener('click', e => { if (currentProduct === 'bang' || currentProduct === 'honey') { e.preventDefault(); e.stopImmediatePropagation(); requestRestockEmail(currentProduct); } }, true);
+</script>
+<script>
+  /* Final audit pass: richer cart states, dynamic shipping progress, and clearer bundle guidance. */
+  function renderCartAudit(){
+    const count = cart.reduce((s,x) => s + (x.qty || 1), 0);
+    const subtotal = cart.reduce((s,x) => s + Number(x.price || 0) * (x.qty || 1), 0);
+    const bag = document.getElementById('bagCount');
+    const total = document.getElementById('cartTotal');
+    const items = document.getElementById('cartItems');
+    const shipping = document.getElementById('shippingProgress');
+    if (bag) bag.textContent = count;
+    if (total) total.textContent = money(subtotal);
+    if (shipping) {
+      const pct = Math.min(100, Math.round((subtotal / 50) * 100));
+      shipping.innerHTML = subtotal >= 50
+        ? '<strong>YOU UNLOCKED FREE SHIPPING.</strong><span class="progress-track"><span class="progress-fill" style="width:100%"></span></span>'
+        : '<span>Add <strong>' + money(50 - subtotal) + '</strong> more to unlock free shipping.</span><span class="progress-track"><span class="progress-fill" style="width:' + pct + '%"></span></span>';
+    }
+    if (!items) return;
+    if (!cart.length) {
+      items.innerHTML = '<div class="cart-empty"><strong>YOUR BAG IS EMPTY</strong><span>Your chicken deserves better.</span><button class="btn black" type="button" data-empty-shop>SHOP SAUCES</button><button class="btn" type="button" data-empty-build>BUILD A 3-PACK</button></div>';
+      items.querySelector('[data-empty-shop]').addEventListener('click', () => { closeBag(); document.getElementById('shop').scrollIntoView({behavior:'smooth'}); });
+      items.querySelector('[data-empty-build]').addEventListener('click', () => { closeBag(); document.getElementById('build').scrollIntoView({behavior:'smooth'}); });
+    } else {
+      items.innerHTML = cart.map((x,i) => '<div class="cart-item"><img src="' + x.img + '" alt="' + (x.name || 'Lickin\' Good sauce') + '"><div><strong>' + x.name + '</strong><small>' + (x.detail || 'Sauce') + '</small><div class="qty-controls"><button type="button" aria-label="Decrease ' + x.name + ' quantity" onclick="changeQty(' + i + ',-1)">−</button><span aria-label="Quantity">' + (x.qty || 1) + '</span><button type="button" aria-label="Increase ' + x.name + ' quantity" onclick="changeQty(' + i + ',1)">+</button></div></div><div><strong>' + money(Number(x.price || 0) * (x.qty || 1)) + '</strong><button type="button" aria-label="Remove ' + x.name + '" onclick="removeItem(' + i + ')" style="display:block;border:0;background:none;color:inherit;text-decoration:underline;font-size:10px;margin-top:6px;padding:4px 0">Remove</button></div></div>').join('');
+    }
+    persistLickinCart();
+  }
+  enhancedUpdateCart = renderCartAudit;
+  updateCart = renderCartAudit;
+  renderCartAudit();
+
+  function syncBuilderAudit(){
+    document.querySelectorAll('[data-pick]').forEach(card => {
+      const active = selected.includes(card.dataset.pick);
+      card.classList.toggle('selected', active);
+      const dot = card.querySelector('.pick-dot');
+      if (dot) dot.textContent = active ? '✓' : '+';
+      card.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    const count = selected.length;
+    const countEl = document.getElementById('pickCount');
+    if (countEl) countEl.textContent = count + ' / 3 selected';
+    const btn = document.getElementById('addThree');
+    if (btn) {
+      btn.disabled = count !== 3;
+      btn.style.opacity = count === 3 ? '1' : '.55';
+      btn.textContent = count === 3 ? 'ADD 3-PACK TO BAG — $24.99' : 'CHOOSE ' + (3 - count) + ' MORE';
+    }
+    const hint = document.getElementById('buildHint');
+    if (hint) hint.textContent = count === 3 ? 'Perfect — your 3-pack is ready.' : (count ? 'Choose ' + (3 - count) + ' more.' : 'Pick your three favorites. Most reordered: Bang Bang + Street White + Hot Honey Smoke.');
+    const summary = document.getElementById('summaryList');
+    if (summary) summary.innerHTML = count ? selected.map(id => '<div class="summary-line"><span>' + byId(id).name + '</span><strong>' + byId(id).cal + ' CAL</strong></div>').join('') : '<div class="summary-line"><span>No flavors selected</span><strong>—</strong></div>';
+    const stickyStrong = document.querySelector('.mobile-sticky strong');
+    const stickySpan = document.querySelector('.mobile-sticky span');
+    if (stickyStrong) stickyStrong.textContent = count ? count + ' of 3 selected' : 'Pick any 3 for $24.99';
+    if (stickySpan) stickySpan.textContent = count === 3 ? 'Your bundle is ready' : 'Build your bundle';
+  }
+  syncBuilder = syncBuilderAudit;
+  window.syncBuilder = syncBuilderAudit;
+  syncBuilderAudit();
+  const hint = document.getElementById('buildHint');
+  if (hint && !document.getElementById('comboCta')) {
+    const combo = document.createElement('button');
+    combo.id = 'comboCta'; combo.className = 'combo-cta'; combo.type = 'button'; combo.textContent = 'ADD MOST REORDERED COMBO';
+    hint.insertAdjacentElement('afterend', combo);
+    combo.addEventListener('click', () => { selected = ['bang','street','honey']; syncBuilderAudit(); document.getElementById('build').scrollIntoView({behavior:'smooth',block:'start'}); showToast('Most reordered combo selected'); });
+  }
+
+  document.querySelectorAll('img').forEach((img, i) => { img.decoding = 'async'; if (i > 2) img.loading = 'lazy'; if (!img.alt) img.alt = 'Lickin\' Good sauce'; });
+  document.querySelectorAll('[data-view]').forEach(btn => btn.setAttribute('aria-label', 'View details for ' + (byId(btn.dataset.view)?.name || 'sauce')));
+  document.getElementById('openBag')?.setAttribute('aria-label', 'Open bag');
+  document.getElementById('closeBag')?.setAttribute('aria-label', 'Close bag');
+  document.getElementById('closeModal')?.setAttribute('aria-label', 'Close product details');
+  document.getElementById('closeCheckout')?.setAttribute('aria-label', 'Close checkout');
+  document.getElementById('mobileViewCart')?.setAttribute('aria-label', 'View cart');
 </script>
 </body>
 </html>
